@@ -12,8 +12,8 @@ app.get("/", (req, res) => {
   res.send("OK chay thanh cong");
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
 
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
