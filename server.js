@@ -15,11 +15,6 @@ if (!API_KEY) {
 
 const PORT = process.env.PORT;
 
-app.get("/", (req, res) => {
-  res.send("OK chay thanh cong");
-});
-
-
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const MAX_SCANS_PER_WINDOW = Number(process.env.MAX_SCANS_PER_MINUTE || 5);
 const MAX_FILE_SIZE_BYTES = Number(process.env.MAX_FILE_SIZE_MB || 10) * 1024 * 1024;
