@@ -6,6 +6,12 @@ const FormData = require("form-data");
 require("dotenv").config();
 
 const app = express();
+const API_KEY = process.env.VT_API_KEY;
+
+if (!API_KEY) {
+    console.error("Thieu VT_API_KEY trong file .env");
+    process.exit(1);
+}
 
 const PORT = process.env.PORT;
 
@@ -13,9 +19,6 @@ app.get("/", (req, res) => {
   res.send("OK chay thanh cong");
 });
 
-app.listen(PORT, () => {
-  console.log("Server running");
-});
 
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const MAX_SCANS_PER_WINDOW = Number(process.env.MAX_SCANS_PER_MINUTE || 5);
@@ -31,10 +34,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-if (!API_KEY) {
-    console.error("Thieu VT_API_KEY trong file .env");
-    process.exit(1);
-}
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
