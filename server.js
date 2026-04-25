@@ -13,8 +13,9 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log("Server running");
+  console.log(`Server is running on port ${port}`);
 });
+
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const MAX_SCANS_PER_WINDOW = Number(process.env.MAX_SCANS_PER_MINUTE || 5);
 const MAX_FILE_SIZE_BYTES = Number(process.env.MAX_FILE_SIZE_MB || 10) * 1024 * 1024;
