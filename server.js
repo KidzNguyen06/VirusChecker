@@ -8,6 +8,13 @@ require("dotenv").config();
 const app = express();
 const API_KEY = process.env.VT_API_KEY;
 const PORT = process.env.PORT || 3000;
+app.get("/", (req, res) => {
+  res.send("OK chay thanh cong");
+});
+
+app.listen(port, () => {
+  console.log("Server running");
+});
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const MAX_SCANS_PER_WINDOW = Number(process.env.MAX_SCANS_PER_MINUTE || 5);
 const MAX_FILE_SIZE_BYTES = Number(process.env.MAX_FILE_SIZE_MB || 10) * 1024 * 1024;
