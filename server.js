@@ -5,15 +5,17 @@ const cors = require("cors");
 const FormData = require("form-data");
 require("dotenv").config();
 
+const express = require("express");
 const app = express();
-const API_KEY = process.env.VT_API_KEY;
+
 const PORT = process.env.PORT;
+
 app.get("/", (req, res) => {
   res.send("OK chay thanh cong");
 });
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log("Server running");
 });
 
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
